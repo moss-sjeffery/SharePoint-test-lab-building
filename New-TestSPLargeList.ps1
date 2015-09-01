@@ -54,35 +54,3 @@ function New-TestSPLargeList
 		Write-Progress -Activity "Creating list items" -Status "Created: $i of $NumberOfItems" -PercentComplete (($i / $NumberOfItems) * 100)
 	}
 }
-
-
-
-
-function Verb-Noun
-{
-    [CmdletBinding()]
-    [Alias()]
-    [OutputType([int])]
-    Param
-    (
-        # Param1 help description
-        [Parameter(Mandatory=$true,
-                   ValueFromPipelineByPropertyName=$true,
-                   Position=0)]
-        $Param1,
-
-        # Param2 help description
-        [int]
-        $Param2
-    )
-
-    Begin
-    {
-    }
-    Process
-    {
-    }
-    End
-    {
-    }
-}
