@@ -9,7 +9,7 @@
 .EXAMPLE
    To create a list with 50,000 list items; you would use the following:
 
-   New-TestSPLargeList -Url "http://collaboration/sites/test-site" -NumberOfItems 50000
+   New-TestSPLargeList -Url "http://collaboration/sites/test-site" -NumberOfItems 50000 -ListTitle "Test list"
 
    Have fun! @moss_sjeffery
 #>
@@ -19,6 +19,7 @@ function New-TestSPLargeList
 	Param 
 	(
 		[string]$Url,
+                [string]$ListTitle,
 		[int]$NumberOfItems
 	)
 	
@@ -26,7 +27,7 @@ function New-TestSPLargeList
 	
 	$targetWeb = Get-SPWeb $Url
 	Write-Debug "Begin: add a new list"
-	$targetWeb.Lists.Add("ContosoCustomers", "Contoso Customers", $targetWeb.ListTemplates["Custom List"])
+	$targetWeb.Lists.Add("$ListTitle", "$ListTitle", $targetWeb.ListTemplates["Custom List"])
 	Write-Debug "End: add a new list"
 	Write-Debug "Begin: add custom fields"
 	$list = $targetWeb.Lists["$ListTitle"]
@@ -54,3 +55,5 @@ function New-TestSPLargeList
 		Write-Progress -Activity "Creating list items" -Status "Created: $i of $NumberOfItems" -PercentComplete (($i / $NumberOfItems) * 100)
 	}
 }
+
+
