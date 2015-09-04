@@ -10,3 +10,7 @@ The repository contains a number of individual scripts that enable you to create
 4. Numerous site collections
 
 Cheers, @moss_sjeffery
+
+# Update 04/09/15
+
+Added 'Randomise-ListItemSecurity' cmdlet
